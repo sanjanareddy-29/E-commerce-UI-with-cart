@@ -8,8 +8,6 @@ function displaycart() {
 
         let card = document.createElement("div");
         card.className = "main1";
-
-        
         let price = Number(item.price);
         let qty = item.qty;
 
@@ -38,28 +36,28 @@ function displaycart() {
 
         plus.onclick = () => {
             item.qty++;
-            save(cart);
+            s(cart);
         };
 
         minus.onclick = () => {
             if (item.qty > 1) {
                 item.qty--;
             } else {
-                cart.splice(index, 1);
+                cart.splice(index,1);
             }
-            save(cart);
+            s(cart);
         };
 
     });
 
-    // ✅ Show total
+    
     let totalDiv = document.createElement("h2");
     totalDiv.textContent = "Total: $" + total;
     main.appendChild(totalDiv);
 }
 
 
-function save(cart) {
+function s(cart) {
     localStorage.setItem("cart", JSON.stringify(cart));
     displaycart();
 }
